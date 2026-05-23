@@ -7,12 +7,13 @@ This wrapper keeps all heavy work off the local machine:
   3. Training is launched on a remote GPU container.
 
 Usage examples:
-  modal run modal_tinyzero.py
+  modal run --detach modal_tinyzero.py
+  modal run --detach modal_tinyzero.py --base-model Qwen/Qwen2.5-1.5B --n-gpus 1
   modal run --detach modal_tinyzero.py --base-model Qwen/Qwen2.5-3B --n-gpus 2
-  modal run modal_tinyzero.py --prepare-data False --extra-hydra-args "critic.model.enable_gradient_checkpointing=True"
-  modal run modal_tinyzero.py --dataset-name gsm8k --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
-  modal run modal_tinyzero.py --dataset-name gsm8k --prompt-conditioning-mode mixed --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
-  modal run modal_tinyzero.py --dataset-name math500 --total-training-steps 250 --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
+  modal run --detach modal_tinyzero.py --prepare-data False --extra-hydra-args "critic.model.enable_gradient_checkpointing=True"
+  modal run --detach modal_tinyzero.py --dataset-name gsm8k --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
+  modal run --detach modal_tinyzero.py --dataset-name countdown --total-training-steps 250 --prompt-conditioning-mode mixed --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
+  modal run --detach modal_tinyzero.py --dataset-name math500 --total-training-steps 250 --base-model Qwen/Qwen2.5-1.5B-Instruct --n-gpus 1
 
 Notes:
   - This wrapper targets the archived TinyZero countdown setup from GitHub.
